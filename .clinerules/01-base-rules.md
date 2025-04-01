@@ -44,6 +44,8 @@
   ├── 01-base-rules.md     # 基本ルール
   ├── 02-personal-rules.md # ユーザーの好みや考え方に関連したルール
   ├── 03-tasks-rules/      # タスク別のルール
+  │   ├── create-slides.md # Marpを使用したスライド作成タスクのルール
+  │   ├── resolve-issue.md # issue対応タスクのルール
   │   ├── summarize.md     # 要約タスクのルール
   │   ├── upsert-rules.md  # Clineのルールをupsertするタスクのルール
   │   └── writing.md       # 文章作成タスクのルール
