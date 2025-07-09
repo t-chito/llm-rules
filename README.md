@@ -15,5 +15,6 @@ git update-index --skip-worktree .claude/communications/tmp.md
 ちょっと編集したい場合は以下のようなコマンドで復活させます。
 
 ```
-git update-index --skip-worktree .claude/communications/prompt.md
+git update-index --no-skip-worktree .claude/communications/prompt.md
+git update-index --no-skip-worktree .claude/communications/tmp.md
 ```
