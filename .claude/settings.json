@@ -14,7 +14,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/workspace/.claude/hooks/hook_stop_words.sh"
+            "command": ".claude/hooks/hook_stop_words.sh"
           }
         ]
       }
@@ -25,7 +25,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/workspace/.claude/hooks/hook_pre_commands.sh"
+            "command": ".claude/hooks/hook_pre_commands.sh"
           }
         ]
       }
