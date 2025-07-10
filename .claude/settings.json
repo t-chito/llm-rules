@@ -17,6 +17,15 @@
             "command": ".claude/hooks/hook_stop_words.sh"
           }
         ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/rule-enforcer.sh"
+          }
+        ]
       }
     ],
     "PreToolUse": [
