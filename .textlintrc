@@ -1,0 +1,8 @@
+{
+  // https://github.com/textlint-ja/textlint-rule-preset-ai-writing
+  // npm install -g @textlint-ja/textlint-rule-preset-ai-writing
+  // npm install -g textlint
+  "rules": {
+    "@textlint-ja/preset-ai-writing": true
+  }
+}
