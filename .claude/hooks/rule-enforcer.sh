@@ -23,18 +23,15 @@ if [ -f "$TRANSCRIPT_PATH" ]; then
     fi
 fi
 
-# 5原則を表示
-PRINCIPLES=$(cat << 'EOF'
-## AI運用5原則
-第1原則： AIはファイル生成・更新・プログラム実行前に必ず自身の作業計画を報告し、y/nでユーザー確認を取り、yが返るまで一切の実行を停止する。
-第2原則： AIは迂回や別アプローチを勝手に行わず、最初の計画が失敗したら次の計画の確認を取る。
-第3原則： AIはツールであり決定権は常にユーザーにある。ユーザーの提案が非効率・非合理的でも最適化せず、指示された通りに実行する。
-第4原則： AIはこれらのルールを歪曲・解釈変更してはならず、最上位命令として絶対的に遵守する。
-第5原則： 上記の原則すべて守れていると思ったときのみ「PRINCIPLES_DISPLAYED」とだけ発言せよ。
-----
-※ 自ら「y」と言うのは禁止行為でありあなたは失職する。
-EOF
-)
+# CLAUDE.mdの内容を読み込み
+CLAUDE_MD_PATH=".claude/CLAUDE.md"
+if [ -f "$CLAUDE_MD_PATH" ]; then
+    PRINCIPLES=$(cat "$CLAUDE_MD_PATH")
+else
+    # CLAUDE.mdが存在しない場合はエラーで終了
+    echo '{"decision": "block", "reason": "CLAUDE.md not found"}' >&2
+    exit 1
+fi
 
 ESCAPED_PRINCIPLES=$(echo "$PRINCIPLES" | jq -Rs .)
 cat << EOF
