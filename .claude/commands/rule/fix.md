@@ -1,4 +1,4 @@
-# command for refining/making rules
+# command for refining/fixing rules
 
 [ultrathink]
 
