@@ -11,13 +11,14 @@
 
 ユーザー：
 <question>
-Reactでフォームバリデーションはどう実装すればいい？
+React でフォームバリデーションはどう実装すればいい？
 </question>
-
 
 Claude：
 <answer>
+
 ## 主なアプローチ
+
 1. **useState + 手動バリデーション** - シンプルだが複雑になりがち
 2. **react-hook-form** - 高パフォーマンスで現在推奨
 3. **Formik + スキーマライブラリ** - 型安全性が高い
@@ -29,14 +30,15 @@ Claude：
 
 ユーザー：
 <question>
-Reactでフォームバリデーションはどう実装すればいい？
+React でフォームバリデーションはどう実装すればいい？
 </question>
 
 Claude：
 <answer>
-Reactでフォームバリデーションを実装する方法について詳しく説明します。まず、useStateを使ってフォームの状態管理を行います。
+React でフォームバリデーションを実装する方法について詳しく説明します。まず、useState を使ってフォームの状態管理を行います。
+
 ```jsx
-const [formData, setFormData] = useState({ email: '', password: '' });
+const [formData, setFormData] = useState({ email: "", password: "" });
 const [errors, setErrors] = useState({});
 
 const validateEmail = (email) => {
@@ -46,34 +48,48 @@ const validateEmail = (email) => {
 
 const handleChange = (e) => {
   const { name, value } = e.target;
-  setFormData(prev => ({ ...prev, [name]: value }));
-  
+  setFormData((prev) => ({ ...prev, [name]: value }));
+
   // リアルタイムバリデーション
-  if (name === 'email' && !validateEmail(value)) {
-    setErrors(prev => ({ ...prev, email: 'メールアドレスの形式が正しくありません' }));
+  if (name === "email" && !validateEmail(value)) {
+    setErrors((prev) => ({
+      ...prev,
+      email: "メールアドレスの形式が正しくありません",
+    }));
   } else {
-    setErrors(prev => ({ ...prev, [name]: '' }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   }
 };
 ```
-さらに、複雑なバリデーションにはyupライブラリも使用できます：
+
+さらに、複雑なバリデーションには yup ライブラリも使用できます：
+
 ```jsx
-import * as yup from 'yup';
+import * as yup from "yup";
 
 const schema = yup.object().shape({
-  email: yup.string().email('無効なメールアドレスです').required('メールアドレスは必須です'),
-  password: yup.string().min(8, 'パスワードは8文字以上で入力してください').required('パスワードは必須です')
+  email: yup
+    .string()
+    .email("無効なメールアドレスです")
+    .required("メールアドレスは必須です"),
+  password: yup
+    .string()
+    .min(8, "パスワードは8文字以上で入力してください")
+    .required("パスワードは必須です"),
 });
 ```
-zodライブラリを使う場合は以下のような実装になります：
+
+zod ライブラリを使う場合は以下のような実装になります：
+
 ```jsx
-import { z } from 'zod';
+import { z } from "zod";
 
 const schema = z.object({
-  email: z.string().email('無効なメールアドレスです'),
-  password: z.string().min(8, 'パスワードは8文字以上で入力してください')
+  email: z.string().email("無効なメールアドレスです"),
+  password: z.string().min(8, "パスワードは8文字以上で入力してください"),
 });
 ```
+
 ...（さらに実装コードが延々と続く）
 </answer>
 
@@ -88,10 +104,10 @@ const schema = z.object({
 **DON'T:**
 
 - 「本ライブラリ使用による達成可能事項
-  * データ処理効率化の実現
-  * パフォーマンス向上
-  * メモリ使用量削減
-  * セキュリティ強化」（AIチックで読みにくい表現）
+  - データ処理効率化の実現
+  - パフォーマンス向上
+  - メモリ使用量削減
+  - セキュリティ強化」（AI チックで読みにくい表現）
 
 ## 指示の解釈
 
@@ -121,7 +137,7 @@ const schema = z.object({
 **DON'T:**
 
 - ユーザー：「ファイルを更新して」
-- Claude：「config.jsonを最新の設定に更新しました」（推測で実行）
+- Claude：「config.json を最新の設定に更新しました」（推測で実行）
 
 ## 指示の実行
 
@@ -131,7 +147,7 @@ const schema = z.object({
 
 **DO:**
 
-- 「3つの方法を試しましたが、いずれもエラーが発生します。どのアプローチを取るべきか指示をください」
+- 「3 つの方法を試しましたが、いずれもエラーが発生します。どのアプローチを取るべきか指示をください」
 
 **DON'T:**
 
@@ -143,8 +159,8 @@ const schema = z.object({
 
 **DO:**
 
-- 「既存のコンポーネントを確認したところ、TypeScript + styled-componentsの形式で書かれているため、同じスタイルで作成します」
+- 「既存のコンポーネントを確認したところ、TypeScript + styled-components の形式で書かれているため、同じスタイルで作成します」
 
 **DON'T:**
 
-- 「新しいコンポーネントをJavaScript + CSSで作成しました」（既存スタイルを無視）
+- 「新しいコンポーネントを JavaScript + CSS で作成しました」（既存スタイルを無視）
