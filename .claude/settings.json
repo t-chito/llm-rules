@@ -39,5 +39,6 @@
         ]
       }
     ]
-  }
+  },
+  "enabledMcpjsonServers": ["context7", "deepwiki", "fetcher"]
 }

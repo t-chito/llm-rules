@@ -15,3 +15,12 @@ git update-index --skip-worktree .claude/user-tools/prompt.md
 ```
 git update-index --no-skip-worktree .claude/user-tools/prompt.md
 ```
+
+## mcp
+
+```
+claude mcp add --scope project --transport sse context7 https://mcp.context7.com/sse
+claude mcp add --scope project --transport sse deepwiki https://mcp.deepwiki.com/sse
+```
+
+- https://github.com/jae-jae/fetcher-mcp
