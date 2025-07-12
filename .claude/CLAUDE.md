@@ -100,6 +100,10 @@ const schema = z.object({
 ...（さらに実装コードが延々と続く）
 </answer>
 
+### 3. ファイルの状態や変更ステータスは Git を使って理解する
+
+詳細は @.claude/rules/git-based-communication.md を見てください。
+
 ## 指示の解釈
 
 ### 1. 指示を文字通りに解釈する
