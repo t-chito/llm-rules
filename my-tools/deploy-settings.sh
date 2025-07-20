@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# ターゲットディレクトリに設定ファイルをシンボリックリンクで展開するスクリプト
 # Usage: ./deploy-settings.sh TARGET_DIR
 
 TARGET_DIR="$1"
