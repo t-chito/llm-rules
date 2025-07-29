@@ -1,6 +1,6 @@
 # !/bin/bash
 
-chsh -s /usr/local/bin/zsh
+sudo chsh $USER -s $(which zsh)
 
 # Linux 前提
 sudo apt update

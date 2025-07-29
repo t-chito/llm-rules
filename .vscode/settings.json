@@ -1,9 +1,16 @@
 {
+  // shell
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+
+  // editor
   "files.insertFinalNewline": true,
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+
+  // copilot
   "github.copilot.enable": {
     "plaintext": true,
     "markdown": true
