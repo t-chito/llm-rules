@@ -1,5 +1,6 @@
 ---
 description: making Product Requirements Document
+argument-hint: <input 資料のあるディレクトリ>
 ---
 
 # prd command
@@ -13,6 +14,8 @@ description: making Product Requirements Document
 
 ファイル構成は以下のようにしてください。
 なお、各ファイルは上から順に作成し、1 つずつ完成させていくことを前提とします。
+1 つのファイルが完成したら、ユーザーに報告し、レビューを求めてください。
+レビューが完了したら、次のファイルに進んでください。
 
 ## ファイル構成
 
