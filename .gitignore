@@ -1,6 +1,7 @@
 .claude/ide/
-.claude/projects/-workspaces-stock/
+.claude/projects/
 .claude/shell-snapshots/
 .claude/statsig/
 .claude/todos/
 .claude/.credentials.json
+.claude/.update.lock
