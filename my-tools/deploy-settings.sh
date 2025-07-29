@@ -9,7 +9,7 @@ TARGET_DIR="${1:-$HOME}"
 SYSTEM_EXCLUDE=("." ".." ".git")
 
 # ユーザー設定の除外（プロジェクトに応じて変更する）
-USER_EXCLUDE=("my-tools" "README.md" "LICENSE" ".gitignore" "docs")
+USER_EXCLUDE=("README.md" "LICENSE" ".gitignore" "docs")
 
 # スクリプトが置かれているディレクトリ（my-tools）の親ディレクトリを取得
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
