@@ -55,5 +55,26 @@ setopt interactive_comments   # Enable comments in interactive shell
 # environment variables
 # =============================================================================
 
-export LANG=ja_JP.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 export LSCOLORS=gxfxcxdxbxegedabagacad
+
+# =============================================================================
+# Prompt settings
+# =============================================================================
+
+# 色設定
+autoload -Uz colors && colors
+
+# gitブランチ表示用にvcs_infoを使用
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# vcs_info設定
+zstyle ':vcs_info:git:*' formats '(%b)'
+zstyle ':vcs_info:*' enable git
+
+setopt PROMPT_SUBST
+
+# bash風プロンプト: ユーザー名 ➜ パス (ブランチ名) $
+PROMPT='%B%F{green}%n%f %F{blue}➜%f %F{cyan}%~%f %F{yellow}${vcs_info_msg_0_}%f %# %b'
