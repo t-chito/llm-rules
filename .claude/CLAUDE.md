@@ -102,7 +102,7 @@ const schema = z.object({
 
 ### 3. ファイルの状態や変更ステータスは Git を使って理解する
 
-詳細は @.claude/rules/git-based-communication.md を見てください。
+詳細は $HOME/.claude/rules/git-based-communication.md を見てください。
 
 ## 指示の解釈
 
