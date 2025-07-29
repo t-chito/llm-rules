@@ -2,7 +2,8 @@
 # ターゲットディレクトリに設定ファイルをシンボリックリンクで展開するスクリプト
 # Usage: ./deploy-settings.sh TARGET_DIR
 
-TARGET_DIR="$1"
+TARGET_DIR="${1:-$HOME}"
+
 
 # 技術的に必須の除外（変更しない）
 SYSTEM_EXCLUDE=("." ".." ".git")
