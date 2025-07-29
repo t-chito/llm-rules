@@ -1,9 +1,18 @@
 {
   "recommendations": [
-    "3w36zj6.textlint",
-    "anthropic.claude-code",
+    // linter
     "esbenp.prettier-vscode",
+    "3w36zj6.textlint",
+    "dbaeumer.vscode-eslint",
+    // llm
+    "anthropic.claude-code",
     "github.copilot",
     "github.copilot-chat",
+    // git
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    "donjayamanne.githistory",
+    // markdown
+    "shd101wyy.markdown-preview-enhanced"
   ]
 }
