@@ -29,8 +29,11 @@ is_excluded() {
 # ターゲットディレクトリに移動
 cd "$TARGET_DIR"
 
-# .git/info/exclude ファイルの準備
-EXCLUDE_FILE="$TARGET_DIR/.git/info/exclude"
+# .git ディレクトリが存在するなら .git/info/exclude ファイルを準備
+EXCLUDE_FILE=""
+if [ -d "$TARGET_DIR/.git" ]; then
+    EXCLUDE_FILE="$TARGET_DIR/.git/info/exclude"
+fi
 
 # settings repoの内容をシンボリックリンクで展開
 for item in "$SETTINGS_REPO"/{.*,*}; do
@@ -49,13 +52,15 @@ for item in "$SETTINGS_REPO"/{.*,*}; do
         
         # シンボリックリンクを作成
         ln -s "$item" "$basename_item"
-        
-        # .git/info/exclude に追加
-        echo "$basename_item" >> "$EXCLUDE_FILE"
+
+        # 除外ファイルに追加 (if it exists)
+        if [ -n "$EXCLUDE_FILE" ]; then
+            echo "$basename_item" >> "$EXCLUDE_FILE"
+        fi
     fi
 done
 
-# .git/info/exclude の重複を削除
-if [ -f "$EXCLUDE_FILE" ]; then
+# .git/info/exclude の重複を削除 (if it exists)
+if [ -n "$EXCLUDE_FILE" ] && [ -f "$EXCLUDE_FILE" ]; then
     sort "$EXCLUDE_FILE" | uniq > "$EXCLUDE_FILE.tmp" && mv "$EXCLUDE_FILE.tmp" "$EXCLUDE_FILE"
 fi
