@@ -11,6 +11,10 @@
     "fetcher": {
       "command": "npx",
       "args": ["-y", "fetcher-mcp"]
+    },
+    "basic-memory": {
+      "command": "uvx",
+      "args": ["basic-memory", "mcp"]
     }
   }
 }
