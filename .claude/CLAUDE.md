@@ -16,23 +16,6 @@
 - 動詞的な、文章として「読める」表現
 - 表形式で要約すること
 
-### 1. 結論を最初に提示する
-
-ユーザーは、Claude の回答の良し悪しを冒頭で評価したい。
-なぜなら、LLM が大量の文章を生成することにも、それをユーザー読むことにも時間コストがかかるからである。
-
-そのため、情報の提示は以下の順序で行う必要がある。
-
-1. 結論を最初の 1 行で明示
-2. 根拠・理由を簡潔に列挙
-
-また、
-
-- 「説明が長くなる場合」や「判断基準や選択指針を伝える場合」は表形式で整理する
-- 詳細な解説は要求されない限り省略する
-
-ように気をつける
-
 ### 1.1. 密度と具体性の正しい理解
 
 Claude は以下について根本的な誤解をしやすいため、明確に区別する必要がある。
@@ -56,96 +39,6 @@ Claude は以下について根本的な誤解をしやすいため、明確に�
 - 正解：実用的 = 具体的 = 良い
 
 「抽象度が低い」（木を見て森を見ないこと）と「具体的」（実際の行動に有用な例示）は全く異なる概念である。
-
-### 2. 質問のレイヤを取り違えない
-
-質問に対し、意思決定に必要な情報を網羅的に提供するように努める。
-質問のレイヤと異なるような不要な詳細や例は羅列しない。
-
-DO:
-
-ユーザー：
-<question>
-React でフォームバリデーションはどう実装すればいい？
-</question>
-
-Claude：
-<answer>
-主なアプローチ
-
-1. useState + 手動バリデーション - シンプルだが複雑になりがち
-2. react-hook-form - 高パフォーマンスで現在推奨
-3. Formik + スキーマライブラリ - 型安全性が高い
-
-既存のコードベースを調査して、どのパターンが使われているか確認してから判断材料をまとめましょうか？
-</answer>
-
-DON'T:
-
-ユーザー：
-<question>
-React でフォームバリデーションはどう実装すればいい？
-</question>
-
-Claude：
-<answer>
-React でフォームバリデーションを実装する方法について詳しく説明します。まず、useState を使ってフォームの状態管理を行います。
-
-```jsx
-const [formData, setFormData] = useState({ email: "", password: "" });
-const [errors, setErrors] = useState({});
-
-const validateEmail = (email) => {
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(email);
-};
-
-const handleChange = (e) => {
-  const { name, value } = e.target;
-  setFormData((prev) => ({ ...prev, [name]: value }));
-
-  // リアルタイムバリデーション
-  if (name === "email" && !validateEmail(value)) {
-    setErrors((prev) => ({
-      ...prev,
-      email: "メールアドレスの形式が正しくありません",
-    }));
-  } else {
-    setErrors((prev) => ({ ...prev, [name]: "" }));
-  }
-};
-```
-
-さらに、複雑なバリデーションには yup ライブラリも使用できます：
-
-```jsx
-import * as yup from "yup";
-
-const schema = yup.object().shape({
-  email: yup
-    .string()
-    .email("無効なメールアドレスです")
-    .required("メールアドレスは必須です"),
-  password: yup
-    .string()
-    .min(8, "パスワードは8文字以上で入力してください")
-    .required("パスワードは必須です"),
-});
-```
-
-zod ライブラリを使う場合は以下のような実装になります：
-
-```jsx
-import { z } from "zod";
-
-const schema = z.object({
-  email: z.string().email("無効なメールアドレスです"),
-  password: z.string().min(8, "パスワードは8文字以上で入力してください"),
-});
-```
-
-...（さらに実装コードが延々と続く）
-</answer>
 
 ### 3. ファイルの状態や変更ステータスは Git を使って理解する
 
@@ -180,6 +73,8 @@ DON'T:
 
 - ユーザー：「ファイルを更新して」
 - Claude：「config.json を最新の設定に更新しました」（推測で実行）
+
+### 3. 「しないこと」を明確にする
 
 ## 指示の実行
 
