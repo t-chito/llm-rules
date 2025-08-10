@@ -12,6 +12,10 @@ sudo apt install -y jq
 # claude code
 npm install -g @anthropic-ai/claude-code
 
+# mcp
+claude mcp add --scope project --transport sse context7 https://mcp.context7.com/sse
+claude mcp add --scope project --transport sse deepwiki https://mcp.deepwiki.com/sse
+
 # textlint
 npm install -g textlint
 npm install -g @textlint-ja/textlint-rule-preset-ai-writing
