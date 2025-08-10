@@ -20,15 +20,6 @@
             "command": "$HOME/.claude/hooks/hook_stop_words.sh"
           }
         ]
-      },
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/.claude/hooks/rule-enforcer.sh"
-          }
-        ]
       }
     ]
   },
