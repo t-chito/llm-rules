@@ -8,6 +8,7 @@
     "anthropic.claude-code",
     "github.copilot",
     "github.copilot-chat",
+    "jackiotyu.git-worktree-manager",
     // git
     "eamodio.gitlens",
     "mhutchie.git-graph",
