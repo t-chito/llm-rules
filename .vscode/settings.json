@@ -3,6 +3,9 @@
   // "terminal.integrated.defaultProfile.osx": "zsh",
   // "terminal.integrated.defaultProfile.linux": "zsh",
 
+  // ide
+  "explorer.excludeGitIgnore": true, // hide files in .gitignore
+
   // editor
   "files.insertFinalNewline": true,
   "editor.tabSize": 2,
