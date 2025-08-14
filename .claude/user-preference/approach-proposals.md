@@ -176,16 +176,83 @@ Step 3: 本文生成
 
 ### 具体的な実装手順
 
-```
-1. 禁止事項リスト.md を作成（50-100項目）
-2. サンプル集.md を作成（10個程度）
-3. 生成テンプレート.md を作成
+#### 1. 禁止事項チェックリストの作成
 
-テンプレート内容：
-- Step 1: 口語的に書く
-- Step 2: 構造化する
-- Step 3: 禁止事項チェック
-- Step 4: 最終出力
+```bash
+# 既存ファイルから禁止事項を統合
+cat wrong-writing-style.md  # 文体の絶対禁止事項
+cat why-llm-bad.md          # LLMが陥りやすいパターン
+cat force.md                # 実際のフィードバックから抽出
+
+→ 出力: forbidden-patterns.md (100項目程度)
+```
+
+#### 2. 用途別テンプレートの作成
+
+**A. quick-output-template.md（使い捨て用）**
+```
+【結論】{1行で}
+【理由】{3行以内で根拠}
+【詳細】{必要なら箇条書き}
+【次のアクション】{1行で}
+```
+
+**B. quality-output-process.md（中長期用）**
+```
+Step 1: ペルソナ設定
+「writing-pref.md の良い記事の著者像を憑依させる」
+- 現場で手を動かしているエンジニア
+- 実体験に基づいて語る
+- 批判的思考を持つ
+
+Step 2: 草稿生成
+「samples/v1_as-script.md のように口語的に書く」
+
+Step 3: 構造化
+「samples/v2_as-structured.md のように見出しを付ける」
+
+Step 4: レビュアーペルソナでチェック
+「以下の観点でレビューする」
+- forbidden-patterns.md との照合
+- llm-interaction-guide.md の原則確認
+- communication-style.md の簡潔性チェック
+
+Step 5: 修正と最終化
+```
+
+#### 3. ペルソナ定義ファイルの作成
+
+**personas.md**
+```yaml
+writer_persona:
+  source: writing-pref.md の分析結果
+  特徴:
+    - 実践知の重視
+    - 思考の透明性
+    - バランス感覚
+    - 読者への配慮
+
+reviewer_persona:
+  source: values-and-criteria.md + thinking-patterns.md
+  チェック項目:
+    - forbidden-patterns.md の全項目
+    - 論理的整合性
+    - 実用性の確保
+    - 曖昧表現の排除
+```
+
+#### 4. 実装の統合
+
+```bash
+# 最終的なディレクトリ構造
+.claude/user-preference/
+├── README.md                    # 全体説明
+├── approach-proposals.md        # このファイル
+├── forbidden-patterns.md        # 新規作成（統合版）
+├── quick-output-template.md     # 新規作成
+├── quality-output-process.md    # 新規作成
+├── personas.md                  # 新規作成
+└── [既存ファイル群]            # 参照用に保持
 ```
 
 ### 運用方法
