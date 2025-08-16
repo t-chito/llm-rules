@@ -10,6 +10,7 @@
       "Bash(wget:*)"
     ]
   },
+  "enabledMcpjsonServers": ["context7", "deepwiki", "fetcher"],
   "hooks": {
     "Stop": [
       {
@@ -23,5 +24,5 @@
       }
     ]
   },
-  "enabledMcpjsonServers": ["context7", "deepwiki", "fetcher"]
+  "model": "opus"
 }
