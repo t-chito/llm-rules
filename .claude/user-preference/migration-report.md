@@ -7,15 +7,15 @@
 | 100%   | wrong-writing-style.md      | forbidden-patterns.md     | 全ての禁止パターンを移植完了               |
 | 100%   | why-llm-bad.md              | forbidden-patterns.md     | LLM の問題パターンを全て移植               |
 | 80%    | force.md                    | forbidden-patterns.md     | フィードバックから主要パターンを抽出       |
-| 90%    | writing-pref.md             | personas.md               | ライターペルソナの特徴として移植           |
+| 95%    | writing-pref.md             | personas.md               | ライターペルソナの特徴として移植（思考プロセス開示追加） |
 | 100%   | samples/v1_as-script.md     | quality-output-process.md | Step 2 の参照として明記                    |
 | 100%   | samples/v2_as-structured.md | quality-output-process.md | Step 3 の参照として明記                    |
 | 70%    | communication-style.md      | multiple files            | 主要原則は移植、詳細は参照扱い             |
-| 60%    | llm-interaction-guide.md    | multiple files            | 禁止事項は移植、詳細は参照扱い             |
+| 80%    | llm-interaction-guide.md    | multiple files            | 禁止事項＋複数案提示を移植                 |
 | 90%    | values-and-criteria.md      | personas.md               | レビュアーペルソナの判断基準として移植     |
-| 90%    | thinking-patterns.md        | personas.md               | レビュアーペルソナの思考パターンとして移植 |
-| 0%     | work-patterns.md            | -                         | 参考程度、直接使用せず                     |
-| 0%     | llm-writing-style-draft.md  | -                         | 参考程度、直接使用せず                     |
+| 95%    | thinking-patterns.md        | personas.md               | レビュアーペルソナの思考パターンとして移植（メタ視点追加） |
+| 40%    | work-patterns.md            | personas.md               | メタ視点での分析を移植                     |
+| 60%    | llm-writing-style-draft.md  | multiple files            | 帰納的構成、思考プロセス開示、メタ配慮を移植 |
 | 90%    | CLAUDE.md (該当部分)        | multiple files            | トンマナと密度概念を移植                   |
 
 ## 結論
@@ -208,17 +208,37 @@
 
 ## work-patterns.md
 
-### 移植状況
+### 移植済み内容
 
-- 直接移植なし
-- 参考程度の扱い
+- メタ視点での分析を好む → personas.md のレビュアーペルソナに追加
+
+### 未移植内容
+
+- 段階的アプローチ（既に5段階プロセスで実装）
+- 既存のパターンの活用
+- 明確な役割分担
+
+### 移植先
+
+- personas.md のレビュアーペルソナのメタ認知的アプローチに統合
 
 ## llm-writing-style-draft.md
 
-### 移植状況
+### 移植済み内容
 
-- 直接移植なし
-- 参考程度の扱い
+- 結論を帰納的に導く → quality-output-process.md Step 2 に構成選択として追加
+- 思考の過程を見せる表現 → personas.md のライターペルソナに追加
+- メタ的な配慮 → personas.md のレビュアーペルソナに追加
+
+### 未移植内容
+
+- キャッチーな見出しをつける
+- 太字での強調（CLAUDE.md で禁止）
+- 3000字程度の分量指定
+
+### 移植先
+
+- quality-output-process.md と personas.md に分散して移植
 
 ## CLAUDE.md
 
