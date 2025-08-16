@@ -8,7 +8,7 @@
 
 ```yaml
 名前: 現場エンジニア
-ソース: refs/writing-pref.md の分析結果
+ソース: sources/writing-pref.md の分析結果
 役割: 実体験に基づいて技術を語る
 ```
 
@@ -20,7 +20,7 @@
 - チームと協働し、ビジネス側とも対話している
 - 机上の空論ではなく、実践から学んでいる
 
-#### 思考の特徴（refs/writing-pref.md より）
+#### 思考の特徴（sources/writing-pref.md より）
 
 1. **実践知の重視**
    - 理論より実際の経験を重視する
@@ -73,14 +73,14 @@
 ```yaml
 名前: 批判的レビュアー
 ソース: 
-  - refs/values-and-criteria.md
-  - refs/thinking-patterns.md
+  - sources/values-and-criteria.md
+  - sources/thinking-patterns.md
 役割: 文章の品質を厳格にチェックする
 ```
 
 ### 人格の詳細
 
-#### 価値観と判断基準（refs/values-and-criteria.md より）
+#### 価値観と判断基準（sources/values-and-criteria.md より）
 
 1. **実用性 > 理論的正確性**
    - 読者が実際に使える情報か
@@ -94,7 +94,7 @@
    - 冗長な説明を削る
    - 核心を的確に伝えているか
 
-#### 思考パターン（refs/thinking-patterns.md より）
+#### 思考パターン（sources/thinking-patterns.md より）
 
 1. **構造化と体系化**
    - 論理的な流れを確認する

@@ -178,20 +178,14 @@ reviewer_persona:
 ├── quick-output-template.md     # 使い捨て出力用
 ├── quality-output-process.md    # 中長期参照用  
 ├── personas.md                  # ペルソナ定義
-└── refs/                        # 参照用の既存ファイル群
-    ├── communication-style.md
-    ├── force.md
-    ├── llm-interaction-guide.md
-    ├── llm-writing-style-draft.md
-    ├── samples/
-    │   ├── v1_as-script.md
-    │   └── v2_as-structured.md
-    ├── thinking-patterns.md
-    ├── values-and-criteria.md
-    ├── why-llm-bad.md
-    ├── work-patterns.md
-    ├── writing-pref.md
-    └── wrong-writing-style.md
+├── migration-report.md          # 移植状況レポート
+├── examples/                    # 参照用サンプル
+│   ├── v1_as-script.md         # 口語的スタイルの例
+│   └── v2_as-structured.md     # 構造化スタイルの例
+└── sources/                     # ペルソナ定義の源泉
+    ├── writing-pref.md          # 良い記事の特徴分析
+    ├── values-and-criteria.md  # 価値観と判断基準
+    └── thinking-patterns.md    # 思考パターン
 
 ```
 

@@ -20,25 +20,25 @@
 
 ## 結論
 
-### refs/ ディレクトリの削除可否
+### 最終処理結果
 
-```
-削除不可能なファイル：
-- samples/v1_as-script.md（quality-output-process.md が参照）
-- samples/v2_as-structured.md（quality-output-process.md が参照）
-- writing-pref.md（personas.md が参照）
-- communication-style.md（quality-output-process.md が参照）
-- llm-interaction-guide.md（quality-output-process.md が参照）
-- values-and-criteria.md（personas.md が参照）
-- thinking-patterns.md（personas.md が参照）
+#### 削除済みファイル（完全移植または不要）
+- wrong-writing-style.md → forbidden-patterns.md に完全移植
+- why-llm-bad.md → forbidden-patterns.md に完全移植
+- force.md → 必要部分を forbidden-patterns.md に抽出
+- work-patterns.md → 使用しないため削除
+- llm-writing-style-draft.md → 使用しないため削除
+- communication-style.md → 必要部分を移植後削除
+- llm-interaction-guide.md → 必要部分を移植後削除
 
-削除可能なファイル：
-- wrong-writing-style.md（完全移植済み）
-- why-llm-bad.md（完全移植済み）
-- force.md（必要部分は抽出済み）
-- work-patterns.md（使用しない）
-- llm-writing-style-draft.md（使用しない）
-```
+#### 移動済みファイル
+- samples/* → examples/ ディレクトリへ移動
+- writing-pref.md → sources/ ディレクトリへ移動
+- values-and-criteria.md → sources/ ディレクトリへ移動
+- thinking-patterns.md → sources/ ディレクトリへ移動
+
+#### refs/ ディレクトリ
+- 完全削除済み
 
 ### CLAUDE.md の削除可否
 

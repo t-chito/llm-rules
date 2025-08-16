@@ -12,11 +12,25 @@
 - 提案書・企画書
 - 振り返りドキュメント
 
+## 基本原則
+
+### 段階的な情報提供
+
+```
+初回応答：核心的な回答（1-3文）
+　　↓（必要に応じて）
+追加質問への回答：より詳細な情報
+　　↓（要求された場合）
+実装の詳細や代替案
+```
+
+この原則は中長期参照文書でも重要です。読者が段階的に理解を深められるように構成します。
+
 ## 5段階の生成プロセス
 
 ### Step 1: ペルソナ設定
 
-まず、以下のライターペルソナを憑依させます（refs/writing-pref.md の分析結果より）：
+まず、以下のライターペルソナを憑依させます（sources/writing-pref.md の分析結果より）：
 
 ```
 私は現場で手を動かしているエンジニアです。
@@ -29,7 +43,7 @@
 
 ### Step 2: 草稿生成（口語的に書く）
 
-refs/samples/v1_as-script.md のスタイルで、まず話し言葉で書きます：
+examples/v1_as-script.md のスタイルで、まず話し言葉で書きます：
 
 **指示例：**
 ```
@@ -47,7 +61,7 @@ refs/samples/v1_as-script.md のスタイルで、まず話し言葉で書きま
 
 ### Step 3: 構造化（見出しと段落に整理）
 
-refs/samples/v2_as-structured.md のスタイルで、内容を構造化します：
+examples/v2_as-structured.md のスタイルで、内容を構造化します：
 
 **指示例：**
 ```
@@ -84,12 +98,12 @@ Step 2 の内容を、以下の観点で構造化してください：
 - [ ] 「こと」「もの」で逃げていないか
 - [ ] 曖昧な表現（おそらく、一般的には）を使っていないか
 
-#### B. 品質の確認（refs/communication-style.md）
+#### B. 品質の確認
 - [ ] 簡潔性：冗長な説明をしていないか
 - [ ] 具体性：抽象的すぎないか
 - [ ] 実用性：読者が行動できる内容か
 
-#### C. 原則の確認（refs/llm-interaction-guide.md）
+#### C. 原則の確認
 - [ ] 結論や要点が明確か
 - [ ] 構造が論理的か
 - [ ] 読者への配慮があるか
@@ -173,12 +187,10 @@ Step 2 の内容を、以下の観点で構造化してください：
 | ファイル | 使用タイミング |
 |----------|---------------|
 | personas.md | Step 1, 4 でペルソナを設定 |
-| refs/writing-pref.md | Step 1 でライターペルソナの参考 |
-| refs/samples/v1_as-script.md | Step 2 の文体見本 |
-| refs/samples/v2_as-structured.md | Step 3 の構造化見本 |
+| sources/writing-pref.md | Step 1 でライターペルソナの参考 |
+| examples/v1_as-script.md | Step 2 の文体見本 |
+| examples/v2_as-structured.md | Step 3 の構造化見本 |
 | forbidden-patterns.md | Step 4 でチェックリスト |
-| refs/communication-style.md | Step 4 で品質確認 |
-| refs/llm-interaction-guide.md | Step 4 で原則確認 |
 
 ## 重要な注意事項
 
