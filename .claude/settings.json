@@ -11,18 +11,5 @@
     ]
   },
   "enabledMcpjsonServers": ["context7", "deepwiki", "fetcher"],
-  "hooks": {
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/.claude/hooks/hook_stop_words.sh"
-          }
-        ]
-      }
-    ]
-  },
   "model": "opus"
 }
