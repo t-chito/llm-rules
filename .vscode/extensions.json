@@ -15,6 +15,7 @@
     "donjayamanne.githistory",
     // markdown
     "shd101wyy.markdown-preview-enhanced",
+    "unifiedjs.vscode-remark",
     // util
     "ctc.vscode-tree-extension"
   ]

@@ -13,6 +13,11 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
 
+  "[markdown]": {
+    "editor.defaultFormatter": "unifiedjs.vscode-remark",
+    "editor.formatOnSave": false
+  },
+
   // copilot
   "github.copilot.enable": {
     "plaintext": true,
