@@ -75,3 +75,6 @@ shopt -s interactive_comments
 
 export LANG=ja_JP.UTF-8
 export LSCOLORS=gxfxcxdxbxegedabagacad
+
+# Add my-tools to PATH
+export PATH="$HOME/my-tools:$PATH"
