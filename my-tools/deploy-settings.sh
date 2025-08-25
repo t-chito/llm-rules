@@ -1,62 +1,36 @@
 #!/bin/bash
-# ターゲットディレクトリに設定ファイルをシンボリックリンクで展開するスクリプト
-# Usage: ./deploy-settings.sh TARGET_DIR
-
-TARGET_DIR="${1:-$HOME}"
+# 設定ファイルをシンボリックリンクで展開するスクリプト
+# Usage: (展開したい prj 以下で) ./deploy-settings.sh
 
 
-# 技術的に必須の除外（変更しない）
-SYSTEM_EXCLUDE=("." ".." ".git")
 
-# ユーザー設定の除外（プロジェクトに応じて変更する）
-USER_EXCLUDE=("README.md" "LICENSE" ".gitignore" "docs")
+# プロジェクトルートに ln するもの
+PRJ_ROOT_LN=(".textlintrc" ".vscode" )
+
+# $HOME に ln するもの
+HOME_LN=(".bashrc" ".claude" ".github" ".mcp.json"  ".zshrc" "my-tools")
 
 # スクリプトが置かれているディレクトリ（my-tools）の親ディレクトリを取得
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SETTINGS_REPO="$(dirname "$SCRIPT_DIR")"
 
-# 除外アイテムかどうかをチェックする関数
-is_excluded() {
-    local item="$1"
-    for exclude in "${SYSTEM_EXCLUDE[@]}" "${USER_EXCLUDE[@]}"; do
-        if [ "$item" = "$exclude" ]; then
-            return 0
-        fi
-    done
-    return 1
-}
-
-# ターゲットディレクトリに移動
-cd "$TARGET_DIR"
-
 # .git ディレクトリが存在するなら .git/info/exclude ファイルを準備
 EXCLUDE_FILE=""
-if [ -d "$TARGET_DIR/.git" ]; then
+if [ -d "./.git" ]; then
     EXCLUDE_FILE="$TARGET_DIR/.git/info/exclude"
 fi
 
-# settings repoの内容をシンボリックリンクで展開
-for item in "$SETTINGS_REPO"/{.*,*}; do
-    if [ -e "$item" ]; then
-        basename_item="$(basename "$item")"
-        
-        # 除外アイテムをスキップ
-        if is_excluded "$basename_item"; then
-            continue
-        fi
-        
+# プロジェクトでPRJ_ROOT_LNを展開
+for item in "${PRJ_ROOT_LN[@]}"; do
+    item_path="$SETTINGS_REPO/$item"
+    if [ -e "$item_path" ]; then
         # 既存のリンクまたはファイルがある場合は削除
-        if [ -L "$basename_item" ] || [ -e "$basename_item" ]; then
-            rm -rf "$basename_item"
+        if [ -L "$item" ] || [ -e "$item" ]; then
+            rm -rf "$item"
         fi
         
         # シンボリックリンクを作成
-        ln -s "$item" "$basename_item"
-
-        # 除外ファイルに追加 (if it exists)
-        if [ -n "$EXCLUDE_FILE" ]; then
-            echo "$basename_item" >> "$EXCLUDE_FILE"
-        fi
+        ln -s "$item_path" "$item"
     fi
 done
 
@@ -64,3 +38,19 @@ done
 if [ -n "$EXCLUDE_FILE" ] && [ -f "$EXCLUDE_FILE" ]; then
     sort "$EXCLUDE_FILE" | uniq > "$EXCLUDE_FILE.tmp" && mv "$EXCLUDE_FILE.tmp" "$EXCLUDE_FILE"
 fi
+
+# $HOME ディレクトリで HOME_LN を展開
+cd "$HOME"
+
+for item in "${HOME_LN[@]}"; do
+    item_path="$SETTINGS_REPO/$item"
+    if [ -e "$item_path" ]; then
+        # 既存のリンクまたはファイルがある場合は削除
+        if [ -L "$item" ] || [ -e "$item" ]; then
+            rm -rf "$item"
+        fi
+        
+        # シンボリックリンクを作成
+        ln -s "$item_path" "$item"
+    fi
+done

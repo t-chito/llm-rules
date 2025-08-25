@@ -78,3 +78,5 @@ setopt PROMPT_SUBST
 
 # bash風プロンプト: ユーザー名 ➜ パス (ブランチ名) $
 PROMPT='%B%F{green}%n%f %F{blue}➜%f %F{cyan}%~%f %F{yellow}${vcs_info_msg_0_}%f %# %b'
+
+export PATH="$HOME/my-tools:$PATH"
